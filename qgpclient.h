@@ -51,6 +51,23 @@ public:
     };
     Q_DECLARE_FLAGS(notificationFlags, notificationOptions)
 
+    enum dataCommands{
+        SEND_DATA,
+        COUNTER,
+        TIME,
+        TIME_TICK,
+        POG_FIX,
+        POG_LEFT,
+        POG_RIGHT,
+        POG_BEST,
+        PUPIL_LEFT,
+        PUPIL_RIGHT,
+        EYE_LEFT,
+        EYE_RIGHT,
+        CURSOR,
+        USER_DATA
+    };
+
 private:
     QTcpSocket *tcpSocket;
 
@@ -62,6 +79,8 @@ private:
     QMutex bufferMutex;
 
     notificationFlags notificationSetting;
+
+    static const QMap<dataCommands, QByteArray> cmdMap;
 
 private slots:
     void receiveData();
@@ -77,7 +96,9 @@ public:
     bool clientConnect();
     bool clientDisconnect();
 
-    void sendCmd(QByteArray cmd);
+    void sendCommand(QByteArray cmd);
+    void sendCommand(dataCommands cmd, bool state = true);
+    void sendCommand(const QList<dataCommands> &cmd, bool state = true);
 
     void getMsgBuffer(QList<QByteArray> &data);
     int getNotificationFlags(){ return notificationSetting; }
