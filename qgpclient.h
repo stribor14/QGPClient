@@ -1,9 +1,9 @@
 /************************************************************************************
 **                                                                                 **
-**  QGPClient: simple TCP communication client for Gazepoint GP3 HD gaze           **
-**  tracker for use within Qt framework.                                           **
+** QGPClient: simple TCP communication client for Gazepoint GP3 HD gaze tracker    **
+** for use within Qt framework.                                                    **
 **                                                                                 **
-**  MIT License                                                                    **
+** MIT License                                                                     **
 **                                                                                 **
 ** Copyright (c) 2018 stribor14                                                    **
 **                                                                                 **
